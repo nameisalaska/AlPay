@@ -27,10 +27,6 @@
                                     <label for="sum" class="uname">Transfer amount</label>
                                     <input id="sum" name="sum" required="sum" type="number" placeholder="0"/>
                                 </p>
-                                <p>
-                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
-                                </p>
                                 <p class="login button">
                                     <input type="submit" value="Draft" />
                                     <input type="submit" value="Submit" />

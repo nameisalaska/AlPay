@@ -17,4 +17,12 @@ public class BlockingServlet extends HttpServlet {
       throws ServletException, IOException {
     request.getRequestDispatcher("WEB-INF/view/client/forms/block.jsp").forward(request, response);
   }
+  @Override
+  public void doPost(HttpServletRequest request,
+                    HttpServletResponse response)
+      throws ServletException, IOException {
+    int number = Integer.parseInt(request.getParameter("cardnumber"));
+
+    request.getRequestDispatcher("WEB-INF/view/client/forms/block.jsp").forward(request, response);
+  }
 }

@@ -14,17 +14,12 @@
 		<div id="container_demo">
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="user_cardblocking" autocomplete="on">
+					<form action="user_cardblocking" autocomplete="on" method = "POST">
 						<h1>Block the card</h1>
 						<p>
 							<label for="cardnumber" class="uname">Card number</label> <input
 								id="cardnumber" name="cardnumber" required="required"
 								type="text"  required pattern="[0-9]{16}"  maxlength="16"  placeholder="XXXXXXXXXXXXXXXX" />
-						</p>
-						<p>
-							<label for="password" class="youpasswd" data-icon="p">
-								Your password </label> <input id="password" name="password"
-								required="required" type="password" placeholder="eg. X8df!90EO" />
 						</p>
 						<p class="login button">
 							<input type="submit" value="Submit" />
