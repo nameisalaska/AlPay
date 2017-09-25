@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8  ">
-<title><fmt:message key="blockForm.title"/></title>
+<title><fmt:message key="blockcard.title"/></title>
 <link rel="stylesheet" type="text/css" href="style/css/style.css" />
 <link rel="stylesheet" type="text/css"
 	href="style/css/animate-custom.css" />
@@ -19,14 +19,14 @@
 			<div id="wrapper">
 				<div id="login" class="animate form">
 					<form action="user_cardblocking" autocomplete="on" method = "POST">
-						<h1><fmt:message key="blockForm.action"/></h1>
+						<h1><fmt:message key="blockcard.action"/></h1>
 						<p>
-							<label for="cardnumber" class="uname">Card number</label> <input
+							<label for="cardnumber" class="uname"><fmt:message key="blockcard.label"/></label> <input
 								id="cardnumber" name="cardnumber" required="required"
 								type="text"  required pattern="[0-9]{16}"  maxlength="16"  placeholder="XXXXXXXXXXXXXXXX" />
 						</p>
 						<p class="login button">
-							<input type="submit" value="Submit" />
+							<input type="submit" value="<fmt:message key="blockcard.submit"/>" />
 						</p>
 					</form>
 				</div>
