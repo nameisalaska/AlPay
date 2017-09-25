@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking = "true" path="/AlPay">
+   <Resource name="jdbc/alpay_system" auth="Container"
+      type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
+       maxTotal="32" maxIdle="8"
+      maxWaitMillis="10000"
+      username="root" password=""
+        url="jdbc:mysql://localhost/alpay_system"/>
+</Context>
