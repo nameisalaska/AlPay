@@ -17,5 +17,4 @@ public class PaymentServlet extends HttpServlet {
       throws ServletException, IOException {
     request.getRequestDispatcher("WEB-INF/view/client/forms/payment.jsp").forward(request, response);
   }
-
 }

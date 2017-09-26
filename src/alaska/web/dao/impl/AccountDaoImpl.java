@@ -16,11 +16,12 @@ public class AccountDaoImpl implements AccountDao{
   final private DataSource dataSource = DbUtils.dataSource;
 
   @Override
-  public void changeStatus(int number,  boolean status) throws SQLException, NamingException {
+  public void changeStatus(int number,  boolean status, boolean request) throws SQLException, NamingException {
     Connection dbConnection =  dataSource.getConnection("root", "");
-    PreparedStatement updateAccount = dbConnection.prepareStatement("UPDATE account SET status = ? WHERE number = ?");
+    PreparedStatement updateAccount = dbConnection.prepareStatement("UPDATE account SET status = ?, request = ? WHERE number = ?");
     updateAccount.setBoolean(1, status);
-    updateAccount.setInt(2, number);
+    updateAccount.setBoolean(2, request);
+    updateAccount.setInt(3, number);
     updateAccount.execute();
   }
 

@@ -42,9 +42,7 @@ public class UserDaoImpl implements UserDao {
     Connection dbConnection =  dataSource.getConnection("root", "");
     PreparedStatement findAllUser = dbConnection .prepareStatement("SELECT * FROM user WHERE status = ?");
     findAllUser.setBoolean(1, status);
-
     ResultSet users = findAllUser.executeQuery();
-
     Set<User> userSet = new HashSet<>();
     while(users.next()) {
         User user = UserUtils.initializeUser(users);
