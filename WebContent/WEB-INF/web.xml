@@ -36,7 +36,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>BlockingServlet</servlet-name>
-    <servlet-class>alaska.web.servlets.BlockingServlet</servlet-class>
+    <servlet-class>alaska.web.servlets.user.BlockingServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BlockingServlet</servlet-name>
@@ -44,7 +44,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>UnblockingServlet</servlet-name>
-    <servlet-class>alaska.web.servlets.UnblockingServlet</servlet-class>
+    <servlet-class>alaska.web.servlets.user.UnblockingServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UnblockingServlet</servlet-name>
@@ -52,7 +52,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>PaymentServlet</servlet-name>
-    <servlet-class>alaska.web.servlets.PaymentServlet</servlet-class>
+    <servlet-class>alaska.web.servlets.user.PaymentServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PaymentServlet</servlet-name>
@@ -60,7 +60,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>ReplenishServlet</servlet-name>
-    <servlet-class>alaska.web.servlets.ReplenishServlet</servlet-class>
+    <servlet-class>alaska.web.servlets.user.ReplenishServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReplenishServlet</servlet-name>
@@ -68,7 +68,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>AddServlet</servlet-name>
-    <servlet-class>alaska.web.servlets.CardAddingServlet</servlet-class>
+    <servlet-class>alaska.web.servlets.user.CardAddingServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddServlet</servlet-name>

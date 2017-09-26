@@ -22,7 +22,7 @@
 					<form action="user_replensih" autocomplete="on" method="POST">
 						<h1><fmt:message key="replenishForm.action" /></h1>
 						<p>
-							<label for="cardnumber" class="uname"><fmt:message key="replenishForm.cardnumber" /></label> <input
+							<label for="cardnumber" class="uname"><fmt:message key="replenishForm.cardNumber" /></label> <input
 								id="cardnumber" name="cardnumber" required="required"
 								type="text" required pattern="[0-9]{16}"   maxlength="16"  placeholder="XXXXXXXXXXXXXXXX" />
 						</p>

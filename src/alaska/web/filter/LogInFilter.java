@@ -1,6 +1,9 @@
 package alaska.web.filter;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -8,43 +11,62 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import alaska.web.dao.UserDao;
+import alaska.web.dao.impl.UserDaoImpl;
+import alaska.web.model.enums.UserType;
 
 /**
- * Servlet Filter implementation class LogInFilter
+ *
+ * @author Alaska
  */
-@WebFilter("/welcome")
+@WebFilter("/*")
 public class LogInFilter implements Filter {
 
-    /**
-     * Default constructor.
-     */
-    public LogInFilter() {
-        // TODO Auto-generated constructor stub
+  /**
+   * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+   */
+  @Override
+  public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+      throws IOException, ServletException {
+    HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+
+    String username = (String) httpServletRequest.getSession().getAttribute("username");
+    if (username != null) {
+      UserDao userDao = new UserDaoImpl();
+
+      UserType type = null;
+      try {
+        type = userDao.findByLogin(username).getType();
+      } catch (SQLException | NamingException e) {
+        e.printStackTrace();
+      }
+
+      HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
+      switch (type) {
+      case User:
+        httpResponse.sendRedirect("/User_home");
+      case Admin:
+        httpResponse.sendRedirect("/Admin_home");
+      }
+    } else {
+      HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+      httpServletResponse.sendRedirect("/");
     }
+  }
 
-	/**
-	 * @see Filter#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
+  /**
+   * @see Filter#init(FilterConfig)
+   */
+  @Override
+  public void init(FilterConfig fConfig) throws ServletException {
+  }
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
+  @Override
+  public void destroy() {
 
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
-	}
-
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+  }
 
 }

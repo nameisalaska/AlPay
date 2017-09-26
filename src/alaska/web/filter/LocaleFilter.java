@@ -17,46 +17,39 @@ import javax.servlet.http.HttpServletRequest;
  */
 @WebFilter("/*")
 public class LocaleFilter implements Filter {
+  /**
+   * @see Filter#destroy()
+   */
+  @Override
+  public void destroy() {
+  }
 
-    /**
-     * Default constructor.
-     */
-    public LocaleFilter() {
-        // TODO Auto-generated constructor stub
+  /**
+   * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+   */
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
+    HttpServletRequest req = (HttpServletRequest) request;
+    Locale locale = (Locale) req.getSession().getAttribute("language");
+    System.out.println("Locale--");
+    if (locale == null) {
+      System.out.println("Locale");
+      setLocale(req, "en");
     }
+    chain.doFilter(request, response);
+  }
 
-	/**
-	 * @see Filter#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
+  /**
+   * @see Filter#init(FilterConfig)
+   */
+  @Override
+  public void init(FilterConfig fConfig) throws ServletException {
+  }
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	  HttpServletRequest req = (HttpServletRequest) request;
-	  Locale locale = (Locale) req.getSession().getAttribute("language");
-	  System.out.println("Locale--");
-	  if(locale == null) {
-	    System.out.println("Locale");
-	     setLocale(req,"en");
-	 }
-	chain.doFilter(request, response);
-	}
-
-
-        /**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
-
-	 private void setLocale(HttpServletRequest req, String lang) {
-	        Locale enLocale = new Locale.Builder().setLanguage(lang).build();
-	        req.getSession().setAttribute("language", enLocale);
-	    }
+  private void setLocale(HttpServletRequest req, String lang) {
+    Locale enLocale = new Locale.Builder().setLanguage(lang).build();
+    req.getSession().setAttribute("language", enLocale);
+  }
 
 }

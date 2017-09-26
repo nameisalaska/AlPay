@@ -15,19 +15,15 @@ import alaska.web.dao.impl.AccountDaoImpl;
 public class ReplenishServlet extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
-  private AccountDao accountDao= new AccountDaoImpl();
+  private AccountDao accountDao = new AccountDaoImpl();
 
   @Override
-  public void doGet(HttpServletRequest request,
-                    HttpServletResponse response)
-      throws ServletException, IOException {
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     request.getRequestDispatcher("WEB-INF/view/client/forms/replenish.jsp").forward(request, response);
   }
 
   @Override
-  public void doPost(HttpServletRequest request,
-                    HttpServletResponse response)
-      throws ServletException, IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int number = Integer.parseInt(request.getParameter("cardnumber"));
     double amount = Double.parseDouble(request.getParameter("sum"));
     try {

@@ -29,9 +29,7 @@ public class AuthorizationServlet extends HttpServlet {
     final String username = req.getParameter("username");
     try {
       final User user = userDao.findByLogin(username);
-      System.out.println(req.getParameter("password"));
-      //System.out.println(user.getPassword());
-      if (user!=null && req.getParameter("password").equals(user.getPassword())) {
+      if (user != null && req.getParameter("password").equals(user.getPassword())) {
         req.getSession().setAttribute("login", user.getLogin());
         req.getSession().setAttribute("email", user.getEmail());
         req.getSession().setAttribute("password", user.getPassword());
@@ -48,7 +46,7 @@ public class AuthorizationServlet extends HttpServlet {
         }
       } else {
         final Locale language = (Locale) req.getSession().getAttribute("language");
-        System.out.println(req.getSession().getAttribute("language") +  " 1");
+        System.out.println(req.getSession().getAttribute("language") + " 1");
         if (language.getLanguage().equals("ru")) {
           req.setAttribute("errorText", "Неправильное имя пользователя/пароль");
         } else {

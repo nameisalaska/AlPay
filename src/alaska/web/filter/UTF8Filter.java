@@ -10,40 +10,38 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * Servlet Filter implementation class UTF8Filter
+ * Servlet Filter implementation class UTF8Filter Set character encoding to
+ * UTF-8
+ *
+ * @author Alaska
  */
+
 @WebFilter("*")
 public class UTF8Filter implements Filter {
 
-    /**
-     * Default constructor.
-     */
-    public UTF8Filter() {
-        // TODO Auto-generated constructor stub
+  /**
+   * @see Filter#destroy()
+   */
+  @Override
+  public void destroy() {
+  }
+
+  /**
+   * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+   */
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
+    if (request.getCharacterEncoding() == null) {
+      request.setCharacterEncoding("UTF-8");
     }
+    chain.doFilter(request, response);
+  }
 
-	/**
-	 * @see Filter#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	     if (request.getCharacterEncoding() == null) {
-	            request.setCharacterEncoding("UTF-8");
-	        }
-	        chain.doFilter(request, response);
-	}
-
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
-
+  /**
+   * @see Filter#init(FilterConfig)
+   */
+  @Override
+  public void init(FilterConfig fConfig) throws ServletException {
+  }
 }

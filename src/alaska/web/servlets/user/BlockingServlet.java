@@ -13,26 +13,22 @@ import alaska.web.dao.AccountDao;
 import alaska.web.dao.impl.AccountDaoImpl;
 
 public class BlockingServlet extends HttpServlet {
-  private AccountDao accountDao= new AccountDaoImpl();
-
+  private AccountDao accountDao = new AccountDaoImpl();
   private static final long serialVersionUID = 1L;
 
   @Override
-  public void doGet(HttpServletRequest request,
-                    HttpServletResponse response)
-      throws ServletException, IOException {
-    request.getRequestDispatcher("WEB-INF/view/client/forms/block.jsp").forward(request, response);
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    request.getRequestDispatcher("WEB-INF/view/client/forms/blockcard.jsp").forward(request, response);
   }
+
   @Override
-  public void doPost(HttpServletRequest request,
-                    HttpServletResponse response)
-      throws ServletException, IOException {
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int number = Integer.parseInt(request.getParameter("cardnumber"));
     try {
       accountDao.changeStatus(number, false, false);
     } catch (SQLException | NamingException e) {
-           e.printStackTrace();
+      e.printStackTrace();
     }
-    request.getRequestDispatcher("WEB-INF/view/client/forms/block.jsp").forward(request, response);
+    request.getRequestDispatcher("WEB-INF/view/client/forms/blockcard.jsp").forward(request, response);
   }
 }

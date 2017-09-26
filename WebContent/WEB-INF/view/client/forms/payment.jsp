@@ -29,11 +29,11 @@
                                 </p>
 								 <p>
                                     <label for="sum" class="uname"><fmt:message key="paymentForm.amount" /></label>
-                                    <input id="sum" name="sum" required="sum" type="number" placeholder="0"/>
+                                    <input id="sum" name="sum" required="required" type="number" placeholder="0"/>
                                 </p>
                                 <p class="login button">
                                     <input type="submit" value="<fmt:message key="paymentForm.submit" />" />
-                                    <input type="submit" value="<fmt:message key="paymentForm.draft" " />
+                                    <input type="submit" value="<fmt:message key="paymentForm.draft" />" />
 								</p>
                             </form>
                         </div>

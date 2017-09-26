@@ -197,13 +197,13 @@
 
                     <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_blocking">Blocking</a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <h4><a href="user_cardblocking">Blocking</a> <span class="text-uppercase margin-l-20"></span></h4>
                         <p>Block my card</p>
                     </div>
                     <!-- End Latest Products -->
 					  <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_unblocking">Unblocking</a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <h4><a href="user_cardunblocking">Unblocking</a> <span class="text-uppercase margin-l-20"></span></h4>
                         <p>Unblock my card</p>
                     </div>
                     <!-- End Latest Products -->

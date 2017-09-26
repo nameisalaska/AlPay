@@ -9,12 +9,9 @@ import java.util.Set;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-
 import alaska.web.dao.ReplenishDao;
-import alaska.web.model.Payment;
 import alaska.web.model.Replenish;
 import alaska.web.utils.DbUtils;
-import alaska.web.utils.PaymentUtils;
 import alaska.web.utils.ReplenishUtils;
 
 public class ReplenishDaoImpl implements ReplenishDao{
