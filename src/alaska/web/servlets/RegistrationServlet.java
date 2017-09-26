@@ -2,6 +2,8 @@ package alaska.web.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
+
 import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -33,15 +35,27 @@ public class RegistrationServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    final String login =  req.getParameter("username");
-    final String email = req.getParameter("email");
-    final String password = req.getParameter("password");
+    final String login =  req.getParameter("usernamesignup");
+    final String email = req.getParameter("emailsignup");
+    final String password = req.getParameter("passwordsignup");
+    final String password_confirm = req.getParameter("passwordsignup_confirm");
+    if(password.equals(password_confirm)) {
     User user = new User(login, email, password, UserType.User, true);
     try {
       userDao.save(user);
   } catch (SQLException | NamingException e) {
      log.error(e);
+     e.printStackTrace();
   }
+    }else {
+      final Locale language = (Locale) req.getSession().getAttribute("language");
+      if (language.getLanguage().equals("ru")) {
+        req.setAttribute("errorText", "Пароли не совпадают");
+      } else {
+        req.setAttribute("errorText", "Passwords mismatch");
+      }
+      req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+    }
     req.getRequestDispatcher("signupconfirm.jsp").forward(req, resp);
   }
 }

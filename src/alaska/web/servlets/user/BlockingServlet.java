@@ -12,7 +12,6 @@ import org.apache.logging.log4j.Logger;
 
 import alaska.web.dao.AccountDao;
 import alaska.web.dao.impl.AccountDaoImpl;
-import alaska.web.model.Account;
 
 public class BlockingServlet extends HttpServlet {
 
