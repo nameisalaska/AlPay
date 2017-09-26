@@ -28,6 +28,7 @@ public class PaymentServlet extends HttpServlet {
       boolean status = getStatus(string);
       new java.sql.Date((new java.util.Date()).getTime());
       Payment payment = new Payment( new Date(new java.util.Date().getTime()), cardfrom, cardto, sum, status, login);
+
   }
   private boolean getStatus(String string) {
     if(string.equals("true")) {
