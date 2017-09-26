@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import alaska.web.dao.AccountDao;
 import alaska.web.dao.impl.AccountDaoImpl;
+import alaska.web.model.Account;
 
 public class BlockingServlet extends HttpServlet {
 
@@ -29,9 +30,9 @@ public class BlockingServlet extends HttpServlet {
     String number = (String) request.getParameter("cardnumber");
     try {
       accountDao.changeStatus(number, false, false);
+      request.getRequestDispatcher("WEB-INF/view/done.jsp").forward(request, response);
     } catch (SQLException | NamingException e) {
       log.error(e);
     }
-    request.getRequestDispatcher("WEB-INF/view/client/forms/blockcard.jsp").forward(request, response);
   }
 }

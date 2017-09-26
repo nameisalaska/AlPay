@@ -1,7 +1,6 @@
 package alaska.web.model;
 
 import java.sql.Date;
-import java.sql.Time;
 
 /**
  * Class for payment creating/changes.
@@ -10,7 +9,6 @@ import java.sql.Time;
  */
 public class Payment {
   private Date date;
-  private Time time;
   private String cardFrom;
   private String cardTo;
   private double amount;
@@ -20,9 +18,8 @@ public class Payment {
   public Payment() {
 
   }
-  public Payment(Date date,Time time,String cardFrom, String cardTo, double amount, boolean status, String payer) {
+  public Payment(Date date,String cardFrom, String cardTo, double amount, boolean status, String payer) {
     this.setDate(date);
-    this.setTime(time);
     this.setCardFrom(cardFrom);
     this.setCardTo(cardTo);
     this.setAmount(amount);
@@ -69,12 +66,7 @@ public class Payment {
   public void setStatus(boolean status) {
     this.status = status;
   }
-  public Time getTime() {
-    return time;
-  }
-  public void setTime(Time time) {
-    this.time = time;
-  }
+
   public String getPayer() {
     return payer;
   }

@@ -22,14 +22,13 @@ public class PaymentDaoImpl implements PaymentDao{
   public void save(Payment payment) throws SQLException, NamingException {
     Connection dbConnection =  dataSource.getConnection();
     PreparedStatement insertPaymentStatement =  dbConnection.prepareStatement("INSERT INTO payment" +
-        " (date,time, cardfrom, cardto, amount, status, payer) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        " (date, cardfrom, cardto, amount, status, payer) VALUES (?, ?, ?, ?, ?, ?)");
     insertPaymentStatement.setDate(1, payment.getDate());
-    insertPaymentStatement.setTime(2, payment.getTime());
-    insertPaymentStatement.setString(3, payment.getCardFrom());
-    insertPaymentStatement.setString(4, payment.getCardTo());
-    insertPaymentStatement.setDouble(5, payment.getAmount());
-    insertPaymentStatement.setBoolean(6, payment.isStatus());
-    insertPaymentStatement.setString(7, payment.getPayer());
+    insertPaymentStatement.setString(2, payment.getCardFrom());
+    insertPaymentStatement.setString(3, payment.getCardTo());
+    insertPaymentStatement.setDouble(4, payment.getAmount());
+    insertPaymentStatement.setBoolean(5, payment.isStatus());
+    insertPaymentStatement.setString(6, payment.getPayer());
     insertPaymentStatement.execute();
   }
 

@@ -29,9 +29,9 @@ public class UnblockingServlet extends HttpServlet {
     String number = (String) request.getParameter("cardnumberunblock");
     try {
       accountDao.changeStatus(number, false, true);
+      request.getRequestDispatcher("WEB-INF/view/done.jsp").forward(request, response);
     } catch (SQLException | NamingException e) {
       log.error(e);
     }
-    request.getRequestDispatcher("WEB-INF/view/client/forms/unblockcard.jsp").forward(request, response);
   }
 }
