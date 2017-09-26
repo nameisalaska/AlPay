@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Home Page</title>
+<title> <fmt:message key="homepage.title" /></title>
             <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
         <script src="style/vendor/jquery.min.js" type="text/javascript"></script>
@@ -70,11 +70,11 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">History</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#experience">Cards</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Options</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body"><fmt:message key="homepage.navitem.home" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about"><fmt:message key="homepage.history" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#experience"><fmt:message key="homepage.cards" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work"><fmt:message key="homepage.options" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact"><fmt:message key="homepage.contacts" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,9 +91,9 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span> <br/> Welcome</h1>
+                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20"><fmt:message key="homepage.header.payment" /></span> <br/> <fmt:message key="homepage.welcome" /></h1>
                             <p class="promo-block-text">
-                            <c:out value="Glad to see you here,  ${login}."/>
+                            <c:out value="<fmt:message key="homepage.glad"/>,  ${login}."/>
                             </p>
                         </div>
 
@@ -113,10 +113,10 @@
                         <div class="section-seperator margin-b-50">
                             <div class="margin-b-50">
                                 <div class="margin-b-30">
-                                    <h2>History</h2>
+                                    <h2><fmt:message key="homepage.history" /></h2>
                                     <p>.......</p>
                                 </div>
-                                <a href="#" class="btn-theme btn-theme-md btn-default-bg text-uppercase">Open all history</a>
+                                <a href="#" class="btn-theme btn-theme-md btn-default-bg text-uppercase"><fmt:message key="homepage.openhistory" /></a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                         <div class="col-md-3 col-sm-6 md-margin-b-4">
                             <div class="service" data-height="height">
                                 <div class="service-info">
-                                    <h3>Card1</h3>
+                                    <h3><fmt:message key="homepage.card" /> 1</h3>
 									 <p class="margin-b-5">№465768798076545678</p>
                                     <p class="margin-b-5">0$</p>
                                 </div>
@@ -170,47 +170,47 @@
             <div class="container content-lg">
                 <div class="row margin-b-40">
                     <div class="col-sm-6">
-                        <h2>Options</h2>
+                        <h2><fmt:message key="homepage.options" /></h2>
                     </div>
                 </div>
                 <!--// end row -->
                 <div class="row">
                  <!-- Latest Products -->
                     <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_acountAdding">Account Adding</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Add new account</p>
+                        <h4><a href="user_acountAdding"><fmt:message key="homepage.accountAdding" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.addAccount" /></p>
                     </div>
                     <!-- End Latest Products -->
                       <!-- Latest Products -->
                     <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardAdding">Card Adding</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Add new card</p>
+                        <h4><a href="user_cardAdding"><fmt:message key="homepage.cardAdding" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.addCard" /></p>
                     </div>
                     <!-- End Latest Products -->
                     <!-- Latest Products -->
                     <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_replenish">Replenish</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Replenish my card</p>
+                        <h4><a href="user_replenish"><fmt:message key="homepage.replenish" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.replenishCard" /></p>
                     </div>
                     <!-- End Latest Products -->
 
                     <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_payment">Payment</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Transfer between cards</p>
+                        <h4><a href="user_payment"><fmt:message key="homepage.payment" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.transfer" /></p>
                     </div>
                     <!-- End Latest Products -->
 
                     <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardblocking">Blocking</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block my card</p>
+                        <h4><a href="user_cardblocking"><fmt:message key="homepage.blocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.blockCard" /></p>
                     </div>
                     <!-- End Latest Products -->
 					  <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardunblocking">Unblocking</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock my card</p>
+                        <h4><a href="user_cardunblocking"><fmt:message key="homepage.unblocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="homepage.unblockCard" /></p>
                     </div>
                     <!-- End Latest Products -->
                 </div>
@@ -222,7 +222,7 @@
         <!-- Promo Banner -->
         <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="style/images/1920x1080/01.jpg">
             <div class="container-sm content-lg">
-                <h2 class="promo-banner-title">Your reliable online terminal</h2>
+                <h2 class="promo-banner-title"><fmt:message key="homepage.banner" /></h2>
                 <p class="promo-banner-text"></p>
             </div>
         </div>
@@ -234,19 +234,19 @@
                 <div class="container content-lg">
                     <div class="row margin-b-40">
                         <div class="col-sm-6">
-                           <h2>Our contacts</h2>
-                            <p>If you have any questions please contact us</p>
+                           <h2><fmt:message key="homepage.ourContacts" /></h2>
+                            <p><fmt:message key="homepage.contactText" /></p>
                         </div>
                     </div>
                     <!--// end row -->
 
                     <div class="row">
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Location</h4>
-                            <a>Ukraine, Kharkiv</a>
+                            <h4><fmt:message key="homepage.location" /></h4>
+                            <a><fmt:message key="homepage.ourLocation" /></a>
                         </div>
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Phone</h4>
+                            <h4><fmt:message key="homepage.phone" /></h4>
                             <a>+380991917402</a>
                         </div>
                         <div class="col-md-3 col-xs-6">

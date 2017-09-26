@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Home Page</title>
+<title> <fmt:message key="adminpage.title" /></title>
             <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
         <script src="style/vendor/jquery.min.js" type="text/javascript"></script>
@@ -70,9 +70,9 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">Requests</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Options</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body"><fmt:message key="adminpage.home" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about"><fmt:message key="adminpage.requests" /></a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work"><fmt:message key="adminpage.options" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span> <br/> Admin Page</h1>
+                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20"><fmt:message key="adminpage.payment" /></span> <br/><fmt:message key="adminpage.adminpage" /></h1>
                             <p class="promo-block-text">
                             <c:out value="Glad to see you here,  ${login}."/>
                             </p>
@@ -111,15 +111,14 @@
                         <div class="section-seperator margin-b-50">
                             <div class="margin-b-50">
 							<div class="margin-b-30">
-								<h2>Requests</h2>
+								<h2><fmt:message key="adminpage.requests" /></h2>
 								<c:forEach items="${usersForAdmin}" var="user">
 									<c:set var="count" value="${count + 1}" scope="page" />
 									<p> ${user.login} ${user.email} ${user.type} </p>
 								</c:forEach>
 							</div>
 							<a href="#"
-								class="btn-theme btn-theme-md btn-default-bg text-uppercase">Open
-								all</a>
+								class="btn-theme btn-theme-md btn-default-bg text-uppercase"><fmt:message key="adminpage.openAll" /></a>
 						</div>
                         </div>
                     </div>
@@ -136,34 +135,34 @@
             <div class="container content-lg">
                 <div class="row margin-b-40">
                     <div class="col-sm-6">
-                        <h2>Options</h2>
+                        <h2><fmt:message key="adminpage.options" /></h2>
                     </div>
                 </div>
                 <!--// end row -->
                 <div class="row">
                     <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_blockinguser">Blocking User</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block the user</p>
+                        <h4><a href="admin_blockinguser"><fmt:message key="adminpage.userBlocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="adminpage.blockUser" /></p>
                     </div>
                     <!-- End Latest Products -->
 					<!-- Latest Products -->
                     <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_unblockinguser">Unblocking User</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock the card</p>
+                        <h4><a href="admin_unblockinguser"><fmt:message key="adminpage.userUnblocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="adminpage.unblockUser" /></p>
                     </div>
                     <!-- End Latest Products -->
 
                     <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_blockingcard">Blocking Сard</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block the card</p>
+                        <h4><a href="admin_blockingcard"><fmt:message key="adminpage.accountBlocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="adminpage.blockAccount" /></p>
                     </div>
                     <!-- End Latest Products -->
 					  <!-- Latest Products -->
                       <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_unblockingcard">Unblocking Card</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock the card</p>
+                        <h4><a href="admin_unblockingcard"><fmt:message key="adminpage.accountUnblocking" /></a> <span class="text-uppercase margin-l-20"></span></h4>
+                        <p><fmt:message key="adminpage.unblockAccount" /></p>
                     </div>
                     <!-- End Latest Products -->
                 </div>
@@ -175,7 +174,7 @@
         <!-- Promo Banner -->
         <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="style/images/1920x1080/admin.jpg">
             <div class="container-sm content-lg">
-                <h2 class="promo-banner-title">Admin Page</h2>
+                <h2 class="promo-banner-title"><fmt:message key="adminpage.adminpage" /></h2>
                 <p class="promo-banner-text"></p>
             </div>
         </div>

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Error page</title>
+<title><fmt:message key="error.title" /></title>
             <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
         <script src="style/vendor/jquery.min.js" type="text/javascript"></script>
@@ -69,7 +69,7 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact"><fmt:message key="error.contacts" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,9 +86,9 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">Ooops<br/>Something went wrong</span></h1>
+                            <h1 class="promo-block-title"><fmt:message key="error.ops" /><br/><fmt:message key="error.message" /></span></h1>
                             <p class="promo-block-text">
-							You can try later or contact us.
+							<fmt:message key="error.can" />
                             </p>
                         </div>
                     </div>
@@ -114,19 +114,19 @@
                 <div class="container content-lg">
                     <div class="row margin-b-40">
                         <div class="col-sm-6">
-                           <h2>Our contacts</h2>
-                            <p>Please contact us</p>
+                           <h2><fmt:message key="error.ourContacts" /></h2>
+                            <p><fmt:message key="error.contactText" /></p>
                         </div>
                     </div>
                     <!--// end row -->
 
                     <div class="row">
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Location</h4>
-                            <a>Ukraine, Kharkiv</a>
+                            <h4><fmt:message key="error.location" /></h4>
+                            <a><fmt:message key="error.ourLocation" /></a>
                         </div>
                         <div class="col-md-3 col-xs-6 md-margin-b-30">
-                            <h4>Phone</h4>
+                            <h4><fmt:message key="error.phone" /></h4>
                             <a>+380991917402</a>
                         </div>
                         <div class="col-md-3 col-xs-6">

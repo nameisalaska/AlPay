@@ -8,7 +8,7 @@
 <html lang="${language}" class="no-js">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login and registration</title>
+<title><fmt:message key="login.title" /></title>
 <link href="style/css/animate-custom.css" rel="stylesheet"
 	type="text/css" />
 <link href="style/css/style.css" rel="stylesheet" type="text/css" />
