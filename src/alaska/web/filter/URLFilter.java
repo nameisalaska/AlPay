@@ -54,7 +54,7 @@ public class URLFilter implements Filter {
     } else {
       chain.doFilter(servletRequest, servletResponse);
     }
-  }
+ }
 
   @Override
   public void init(FilterConfig fConfig) throws ServletException {

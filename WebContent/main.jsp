@@ -64,7 +64,7 @@
                         </div>
                         <!-- End Logo -->
                     </div>
-					
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
@@ -86,7 +86,7 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span></h1>
+                            <h1 class="promo-block-title">AlPay<br/>Payment system</h1>
                             <p class="promo-block-text">
                             </p>
                         </div>

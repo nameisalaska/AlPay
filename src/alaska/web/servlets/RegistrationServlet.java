@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import alaska.web.dao.UserDao;
+import alaska.web.dao.impl.UserDaoImpl;
 import alaska.web.model.User;
 import alaska.web.model.enums.UserType;
 
@@ -19,7 +20,7 @@ public class RegistrationServlet extends HttpServlet {
 
   private static final Logger log = LogManager.getLogger(RegistrationServlet.class);
   private static final long serialVersionUID = 1L;
-  private UserDao userDao;
+  private UserDao userDao = new UserDaoImpl();
 
   public void init(ServletConfig config) throws ServletException {
     super.init(config);

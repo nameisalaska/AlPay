@@ -16,7 +16,7 @@ public class LocaleServlet extends HttpServlet {
     System.out.println("lang");
     Locale locale = new Locale.Builder().setLanguage(lang).build();
     request.getSession().setAttribute("language", locale);
-    request.getRequestDispatcher("login.jsp").forward(request, response);
+    request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
   }
 
   @Override
