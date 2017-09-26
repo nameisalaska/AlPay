@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Home Page</title>
+<title>Error page</title>
             <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
         <!-- CORE PLUGINS -->
         <script src="style/vendor/jquery.min.js" type="text/javascript"></script>
@@ -64,15 +64,12 @@
                         </div>
                         <!-- End Logo -->
                     </div>
-
-
+					
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">Requests</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Options</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,12 +86,11 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span> <br/> Admin Page</h1>
+                            <h1 class="promo-block-title">Ooops<br/>Something went wrong</span></h1>
                             <p class="promo-block-text">
-                            <c:out value="Glad to see you here,  ${login}."/>
+							You can try later or contact us.
                             </p>
                         </div>
-
                     </div>
                 </div>
                 <!--// end row -->
@@ -102,88 +98,48 @@
         </div>
         <!--========== SLIDER ==========-->
 
-        <!--========== PAGE LAYOUT ==========-->
-        <!-- About -->
-        <div id="about">
-            <div class="container content-lg">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div class="section-seperator margin-b-50">
-                            <div class="margin-b-50">
-							<div class="margin-b-30">
-								<h2>Requests</h2>
-								<c:forEach items="${usersForAdmin}" var="user">
-									<c:set var="count" value="${count + 1}" scope="page" />
-									<p> ${user.login} ${user.email} ${user.type} </p>
-								</c:forEach>
-							</div>
-							<a href="#"
-								class="btn-theme btn-theme-md btn-default-bg text-uppercase">Open
-								all</a>
-						</div>
-                        </div>
-                    </div>
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-        <!-- End About -->
-
-
-
-        <!-- Options -->
-        <div id="work">
-            <div class="container content-lg">
-                <div class="row margin-b-40">
-                    <div class="col-sm-6">
-                        <h2>Options</h2>
-                    </div>
-                </div>
-                <!--// end row -->
-                <div class="row">
-                    <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_blockinguser">Blocking User</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block the user</p>
-                    </div>
-                    <!-- End Latest Products -->
-					<!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_unblockinguser">Unblocking User</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock the card</p>
-                    </div>
-                    <!-- End Latest Products -->
-
-                    <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_blockingcard">Blocking Сard</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block the card</p>
-                    </div>
-                    <!-- End Latest Products -->
-					  <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="admin_unblockingcard">Unblocking Card</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock the card</p>
-                    </div>
-                    <!-- End Latest Products -->
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-        <!-- End  Options -->
 
         <!-- Promo Banner -->
-        <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="style/images/1920x1080/admin.jpg">
+        <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="style/images/1920x1080/error.jpg">
             <div class="container-sm content-lg">
-                <h2 class="promo-banner-title">Admin Page</h2>
+                <h2 class="promo-banner-title"></h2>
                 <p class="promo-banner-text"></p>
             </div>
         </div>
         <!-- End Promo Banner -->
 
+        <!-- Contact -->
+        <div id="contact">
+            <div class="bg-color-sky-light">
+                <div class="container content-lg">
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                           <h2>Our contacts</h2>
+                            <p>Please contact us</p>
+                        </div>
+                    </div>
+                    <!--// end row -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 md-margin-b-30">
+                            <h4>Location</h4>
+                            <a>Ukraine, Kharkiv</a>
+                        </div>
+                        <div class="col-md-3 col-xs-6 md-margin-b-30">
+                            <h4>Phone</h4>
+                            <a>+380991917402</a>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <h4>Email</h4>
+                            <a>nameisalaska@gmail.com</a>
+                        </div>
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+        </div>
+        <!-- End Contact -->
         <!--========== END PAGE LAYOUT ==========-->
-
-
 
         <!-- Back To Top -->
         <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>

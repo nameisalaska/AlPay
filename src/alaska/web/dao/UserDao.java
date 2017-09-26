@@ -1,7 +1,7 @@
 package alaska.web.dao;
+
 import java.sql.SQLException;
 import java.util.Set;
-
 import javax.naming.NamingException;
 
 import alaska.web.model.User;

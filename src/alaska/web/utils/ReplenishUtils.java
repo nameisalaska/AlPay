@@ -13,7 +13,7 @@ public class ReplenishUtils {
    */
   public static Replenish initializeReplenish(ResultSet payments) throws SQLException {
       final Replenish replenish = new Replenish();
-      replenish.setAccount(payments.getInt("account"));
+      replenish.setAccount(payments.getString("account"));
       replenish.setAmount(payments.getDouble("amount"));
       replenish.setDate(payments.getDate("date"));
       replenish.setTime(payments.getTime("time"));

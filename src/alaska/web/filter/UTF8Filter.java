@@ -10,8 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * Servlet Filter implementation class UTF8Filter Set character encoding to
- * UTF-8
+ * Set character encoding to UTF-8.
  *
  * @author Alaska
  */
@@ -19,16 +18,10 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("*")
 public class UTF8Filter implements Filter {
 
-  /**
-   * @see Filter#destroy()
-   */
   @Override
   public void destroy() {
   }
 
-  /**
-   * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-   */
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
@@ -38,9 +31,6 @@ public class UTF8Filter implements Filter {
     chain.doFilter(request, response);
   }
 
-  /**
-   * @see Filter#init(FilterConfig)
-   */
   @Override
   public void init(FilterConfig fConfig) throws ServletException {
   }

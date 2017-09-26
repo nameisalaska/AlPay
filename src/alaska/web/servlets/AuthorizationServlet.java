@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Locale;
 import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import alaska.web.dao.UserDao;
 import alaska.web.dao.impl.UserDaoImpl;
@@ -16,21 +19,25 @@ import alaska.web.model.enums.UserType;
 
 public class AuthorizationServlet extends HttpServlet {
 
+  private static final Logger log = LogManager.getLogger(AuthorizationServlet.class);
   private UserDao userDao = new UserDaoImpl();
   private static final long serialVersionUID = 1L;
 
-  @Override
-  public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.getRequestDispatcher("login.jsp").forward(req, resp);
+  public void init(ServletConfig config) throws ServletException {
+    super.init(config);
   }
 
   @Override
-  public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     final String username = req.getParameter("username");
     try {
       final User user = userDao.findByLogin(username);
       if (user != null && req.getParameter("password").equals(user.getPassword())) {
-        req.getSession().setAttribute("login", user.getLogin());
+        req.getSession().setAttribute("username", user.getLogin());
         req.getSession().setAttribute("email", user.getEmail());
         req.getSession().setAttribute("password", user.getPassword());
         req.getSession().setAttribute("type", user.getType());
@@ -38,10 +45,10 @@ public class AuthorizationServlet extends HttpServlet {
         final UserType type = user.getType();
         switch (type) {
         case User:
-          req.getRequestDispatcher("/WEB-INF/view/client/user_homepage.jsp").forward(req, resp);
+          resp.sendRedirect("user_home");
           break;
         case Admin:
-          req.getRequestDispatcher("/WEB-INF/view/admin/admin_homepage.jsp").forward(req, resp);
+          resp.sendRedirect("admin_home");
           break;
         }
       } else {
@@ -52,10 +59,10 @@ public class AuthorizationServlet extends HttpServlet {
         } else {
           req.setAttribute("errorText", "Wrong login/password");
         }
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
       }
     } catch (SQLException | NamingException e) {
-      e.printStackTrace();
+      log.error(e);
     }
   }
 }

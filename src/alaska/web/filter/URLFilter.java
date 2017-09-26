@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import alaska.web.model.enums.UserType;
 
 /**
- * Servlet Filter implementation class URLFilter
  * Checks urls and user rights.
  *
  * @author Alaska
@@ -23,23 +22,20 @@ import alaska.web.model.enums.UserType;
 @WebFilter("/*")
 public class URLFilter implements Filter {
 
-  /**
-   * @see Filter#destroy()
-   */
   @Override
   public void destroy() {
   }
 
-  /**
-   * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-   */
   @Override
   public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
       throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
     UserType type = (UserType) httpServletRequest.getSession().getAttribute("type");
     String requestUrl = httpServletRequest.getRequestURL().toString();
-    if (requestUrl.contains("admin")) {
+    if(type == null && (requestUrl.contains("admin") || requestUrl.contains("user"))) {
+      HttpServletResponse response = (HttpServletResponse) servletResponse;
+      httpServletRequest.getRequestDispatcher("/WEB-INF/view/error/error.jsp").forward(httpServletRequest, response);
+    }else if (requestUrl.contains("admin")) {
       if (type != null && type.name().equals("Admin")) {
         chain.doFilter(servletRequest, servletResponse);
       } else {
@@ -55,13 +51,11 @@ public class URLFilter implements Filter {
         response.sendError(HttpServletResponse.SC_FORBIDDEN);
         return;
       }
+    } else {
+      chain.doFilter(servletRequest, servletResponse);
     }
-    chain.doFilter(servletRequest, servletResponse);
   }
 
-  /**
-   * @see Filter#init(FilterConfig)
-   */
   @Override
   public void init(FilterConfig fConfig) throws ServletException {
   }

@@ -3,32 +3,35 @@ package alaska.web.model;
 import java.sql.Date;
 import java.sql.Time;
 
+/**
+ * Class for replenish creating/changes.
+ *
+ * @author Alaska
+ */
 public class Replenish {
-  /**
-   * Pattern for replenish creating.
-   *
-   * @author Alaska
-   */
-  private int account;
+
+  private String account;
   private double amount;
   private Date date;
   private Time time;
+  private String payer;
 
   public Replenish() {
 
   }
-  public Replenish(int account, double amount, Date date, Time time) {
+  public Replenish(String account, double amount, Date date, Time time,String payer) {
     this.setAccount(account);
     this.setAmount(amount);
     this.setDate(date);
     this.setTime(time);
+    this.setPayer(payer);
   }
 
-  public int getAccount() {
+  public String getAccount() {
     return account;
   }
 
-  public void setAccount(int account) {
+  public void setAccount(String account) {
     this.account = account;
   }
 
@@ -50,5 +53,11 @@ public class Replenish {
   }
   public void setDate(Date date) {
     this.date = date;
+  }
+  public String getPayer() {
+    return payer;
+  }
+  public void setPayer(String payer) {
+    this.payer = payer;
   }
 }

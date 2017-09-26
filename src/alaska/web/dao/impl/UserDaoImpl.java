@@ -18,7 +18,6 @@ public class UserDaoImpl implements UserDao {
 
   @Override
   public User findByLogin(String username) throws SQLException, NamingException {
-
      Connection dbConnection =  dataSource.getConnection();
      PreparedStatement findUser = dbConnection.prepareStatement("SELECT * FROM user WHERE  login = ?");
      findUser.setString(1, username);
@@ -36,10 +35,10 @@ public class UserDaoImpl implements UserDao {
      }
      return user;
   }
-
+  
  @Override
   public Set<User> findByStatus(boolean status) throws SQLException, NamingException{
-    Connection dbConnection =  dataSource.getConnection("root", "");
+    Connection dbConnection =  dataSource.getConnection();
     PreparedStatement findAllUser = dbConnection .prepareStatement("SELECT * FROM user WHERE status = ?");
     findAllUser.setBoolean(1, status);
     ResultSet users = findAllUser.executeQuery();
@@ -48,13 +47,12 @@ public class UserDaoImpl implements UserDao {
         User user = UserUtils.initializeUser(users);
         userSet.add(user);
     }
-
     return userSet;
 }
 
  @Override
   public void save(User user) throws SQLException, NamingException{
-   Connection dbConnection =  dataSource.getConnection("root", "");
+   Connection dbConnection =  dataSource.getConnection();
     PreparedStatement insertUserStatement =  dbConnection.prepareStatement("INSERT INTO user" +
         " (login, email, password, type, status) VALUES (?, ?, ?, ?, ?)");
     insertUserStatement.setString(1, user.getLogin());
@@ -67,7 +65,7 @@ public class UserDaoImpl implements UserDao {
 
  @Override
   public void changeStatus(String username, boolean status) throws NamingException, SQLException{
-   Connection dbConnection =  dataSource.getConnection("root", "pass");
+   Connection dbConnection =  dataSource.getConnection();
     PreparedStatement updateUser = dbConnection.prepareStatement("UPDATE user SET status = ? WHERE login = ?");
     updateUser.setBoolean(1, status);
     updateUser.setString(2, username);

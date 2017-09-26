@@ -64,16 +64,11 @@
                         </div>
                         <!-- End Logo -->
                     </div>
-
-
+					
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#about">History</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#experience">Cards</a></li>
-                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#work">Options</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contact</a></li>
                             </ul>
                         </div>
@@ -91,9 +86,8 @@
                 <div class="row">
                     <div class="col-sm-6 sm-margin-b-60">
                         <div class="margin-b-30">
-                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span> <br/> Welcome</h1>
+                            <h1 class="promo-block-title">AlPay<span class="text-uppercase margin-l-20">Payment system</span></h1>
                             <p class="promo-block-text">
-                            <c:out value="Glad to see you here,  ${login}."/>
                             </p>
                         </div>
 
@@ -113,10 +107,9 @@
                         <div class="section-seperator margin-b-50">
                             <div class="margin-b-50">
                                 <div class="margin-b-30">
-                                    <h2>History</h2>
-                                    <p>.......</p>
+                                    <h2>You can LOG IN</h2>
+									 <a href="login" class="btn-theme btn-theme-md btn-default-bg text-uppercase">LOG IN</a>
                                 </div>
-                                <a href="#" class="btn-theme btn-theme-md btn-default-bg text-uppercase">Open all history</a>
                             </div>
                         </div>
                     </div>
@@ -125,99 +118,6 @@
             </div>
         </div>
         <!-- End About -->
-
-        <!-- Experience -->
-        <div id="experience">
-            <div class="bg-color-sky-light" data-auto-height="true">
-                <div class="container content-lg">
-                    <div class="row row-space-2 margin-b-4">
-                        <div class="col-md-3 col-sm-6 md-margin-b-4">
-                            <div class="service" data-height="height">
-                                <div class="service-info">
-                                    <h3>Card1</h3>
-									 <p class="margin-b-5">№465768798076545678</p>
-                                    <p class="margin-b-5">0$</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 sm-margin-b-4">
-                            <div class="service" data-height="height">
-                               <div class="service-info">
-                                    <h3>Card2</h3>
-									 <p class="margin-b-5">№465768798076545678</p>
-                                    <p class="margin-b-5">0$</p>
-                                </div>
-                            </div>
-                        </div>
-						<div class="col-md-3 col-sm-6 sm-margin-b-4">
-                            <div class="service" data-height="height">
-                               <div class="service-info">
-                                    <h3>Card2</h3>
-									 <p class="margin-b-5">№465768798076545678</p>
-                                    <p class="margin-b-5">0$</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--// end row -->
-                </div>
-            </div>
-        </div>
-        <!-- End Experience -->
-
-        <!-- Options -->
-        <div id="work">
-            <div class="container content-lg">
-                <div class="row margin-b-40">
-                    <div class="col-sm-6">
-                        <h2>Options</h2>
-                    </div>
-                </div>
-                <!--// end row -->
-                <div class="row">
-                 <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_acountAdding">Account Adding</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Add new account</p>
-                    </div>
-                    <!-- End Latest Products -->
-                      <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardAdding">Card Adding</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Add new card</p>
-                    </div>
-                    <!-- End Latest Products -->
-                    <!-- Latest Products -->
-                    <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_replenish">Replenish</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Replenish my card</p>
-                    </div>
-                    <!-- End Latest Products -->
-
-                    <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_payment">Payment</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Transfer between cards</p>
-                    </div>
-                    <!-- End Latest Products -->
-
-                    <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardblocking">Blocking</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Block my card</p>
-                    </div>
-                    <!-- End Latest Products -->
-					  <!-- Latest Products -->
-                      <div class="col-sm-4 sm-margin-b-50">
-                        <h4><a href="user_cardunblocking">Unblocking</a> <span class="text-uppercase margin-l-20"></span></h4>
-                        <p>Unblock my card</p>
-                    </div>
-                    <!-- End Latest Products -->
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-        <!-- End  Options -->
 
         <!-- Promo Banner -->
         <div class="promo-banner parallax-window" data-parallax="scroll" data-image-src="style/images/1920x1080/01.jpg">
@@ -260,8 +160,6 @@
         </div>
         <!-- End Contact -->
         <!--========== END PAGE LAYOUT ==========-->
-
-
 
         <!-- Back To Top -->
         <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>

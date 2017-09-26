@@ -4,28 +4,30 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- * Pattern for payment creating.
+ * Class for payment creating/changes.
  *
  * @author Alaska
  */
 public class Payment {
   private Date date;
   private Time time;
-  private int cardFrom;
-  private int cardTo;
+  private String cardFrom;
+  private String cardTo;
   private double amount;
   private boolean status;
+  private String payer;
 
   public Payment() {
 
   }
-  public Payment(Date date,Time time,int cardFrom, int cardTo, double amount, boolean status) {
+  public Payment(Date date,Time time,String cardFrom, String cardTo, double amount, boolean status, String payer) {
     this.setDate(date);
     this.setTime(time);
     this.setCardFrom(cardFrom);
     this.setCardTo(cardTo);
     this.setAmount(amount);
     this.setStatus(status);
+    this.setPayer(payer);
   }
 
   public Date getDate() {
@@ -36,19 +38,19 @@ public class Payment {
     this.date = date;
   }
 
-  public int getCardFrom() {
+  public String getCardFrom() {
     return cardFrom;
   }
 
-  public void setCardFrom(int cardFrom) {
+  public void setCardFrom(String cardFrom) {
     this.cardFrom = cardFrom;
   }
 
-  public int getCardTo() {
+  public String getCardTo() {
     return cardTo;
   }
 
-  public void setCardTo(int cardTo) {
+  public void setCardTo(String cardTo) {
     this.cardTo = cardTo;
   }
 
@@ -72,5 +74,11 @@ public class Payment {
   }
   public void setTime(Time time) {
     this.time = time;
+  }
+  public String getPayer() {
+    return payer;
+  }
+  public void setPayer(String payer) {
+    this.payer = payer;
   }
 }

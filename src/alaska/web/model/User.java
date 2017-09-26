@@ -3,7 +3,7 @@ package alaska.web.model;
 import alaska.web.model.enums.UserType;
 
 /**
- * Pattern for user creating.
+ * Class for user creating/changes.
  *
  * @author Alaska
  */

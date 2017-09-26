@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 import alaska.web.dao.PaymentDao;
 import alaska.web.model.Payment;
 import alaska.web.utils.DbUtils;
@@ -19,24 +20,25 @@ public class PaymentDaoImpl implements PaymentDao{
 
   @Override
   public void save(Payment payment) throws SQLException, NamingException {
-    Connection dbConnection =  dataSource.getConnection("root", "pass");
+    Connection dbConnection =  dataSource.getConnection();
     PreparedStatement insertPaymentStatement =  dbConnection.prepareStatement("INSERT INTO payment" +
-        " (date,time, cardfrom, cardto, amount, status) VALUES (?, ?, ?, ?, ?, ?)");
+        " (date,time, cardfrom, cardto, amount, status, payer) VALUES (?, ?, ?, ?, ?, ?, ?)");
     insertPaymentStatement.setDate(1, payment.getDate());
     insertPaymentStatement.setTime(2, payment.getTime());
-    insertPaymentStatement.setInt(3, payment.getCardFrom());
-    insertPaymentStatement.setInt(4, payment.getCardTo());
+    insertPaymentStatement.setString(3, payment.getCardFrom());
+    insertPaymentStatement.setString(4, payment.getCardTo());
     insertPaymentStatement.setDouble(5, payment.getAmount());
     insertPaymentStatement.setBoolean(6, payment.isStatus());
+    insertPaymentStatement.setString(7, payment.getPayer());
     insertPaymentStatement.execute();
   }
 
   @Override
-  public Set<Payment> findByNumber(int number) throws SQLException, NamingException {
-    Connection dbConnection =  dataSource.getConnection("root", "");
+  public Set<Payment> findByNumber(String number) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
     PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE cardfrom = ? OR cardto = ? AND status = ?");
-    findAllPayment.setInt(1, number);
-    findAllPayment.setInt(2, number);
+    findAllPayment.setString(1, number);
+    findAllPayment.setString(2, number);
     findAllPayment.setBoolean(3, true);
     ResultSet payments = findAllPayment.executeQuery();
 
@@ -50,10 +52,10 @@ public class PaymentDaoImpl implements PaymentDao{
   }
 
   @Override
-  public Set<Payment> findByStatus(int number) throws SQLException, NamingException {
-    Connection dbConnection =  dataSource.getConnection("root", "");
-    PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE cardfrom = ? AND status = ?");
-    findAllPayment.setInt(1, number);
+  public Set<Payment> findByStatus(String payer, boolean status) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
+    PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE payer = ? AND status = ?");
+    findAllPayment.setString(1, payer);
     findAllPayment.setBoolean(2, false);
     ResultSet payments = findAllPayment.executeQuery();
     Set<Payment> paymentSet = new HashSet<>();
@@ -65,11 +67,11 @@ public class PaymentDaoImpl implements PaymentDao{
   }
 
   @Override
-  public void changeStatus(int number, boolean status) throws SQLException, NamingException {
-    Connection dbConnection =  dataSource.getConnection("root", "");
+  public void changeStatus(String number, boolean status) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
     PreparedStatement updatePayment = dbConnection.prepareStatement("UPDATE payment SET status = ? WHERE cardfrom = ?");
     updatePayment.setBoolean(1, status);
-    updatePayment.setInt(2, number);
+    updatePayment.setString(2, number);
     updatePayment.execute();
   }
 }

@@ -2,7 +2,6 @@ package alaska.web.servlets.user;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,13 +17,13 @@ public class ReplenishServlet extends HttpServlet {
   private AccountDao accountDao = new AccountDaoImpl();
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     request.getRequestDispatcher("WEB-INF/view/client/forms/replenish.jsp").forward(request, response);
   }
 
   @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int number = Integer.parseInt(request.getParameter("cardnumber"));
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String number = (String) request.getParameter("cardnumber");
     double amount = Double.parseDouble(request.getParameter("sum"));
     try {
       accountDao.changeBalance(number, amount);

@@ -14,12 +14,13 @@ public class PaymentUtils {
    */
   public static Payment initializePayment(ResultSet payments) throws SQLException {
       final Payment payment = new Payment();
-      payment.setCardFrom(payments.getInt("cardfrom"));
-      payment.setCardTo(payments.getInt("cardto"));
+      payment.setCardFrom(payments.getString("cardfrom"));
+      payment.setCardTo(payments.getString("cardto"));
       payment.setDate(payments.getDate("date"));
       payment.setTime(payments.getTime("time"));
       payment.setAmount(payments.getDouble("amount"));
       payment.setStatus(payments.getBoolean("status"));
+      payment.setPayer(payments.getString("payer"));
       return payment;
   }
 }
