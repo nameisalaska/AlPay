@@ -18,12 +18,15 @@
 		<div id="container_demo">
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="user_cardblocking" autocomplete="on" method = "POST">
+					<form action="admin_unblockaccount" autocomplete="on" method = "POST">
 						<h1><fmt:message key="blockcard.action"/></h1>
 						<p>
 							<label for="cardnumber" class="uname"><fmt:message key="blockcard.label"/></label> <input
 								id="cardnumber" name="cardnumber" required="required"
 								type="text"  required pattern="[0-9]{16}"  maxlength="16"  placeholder="XXXXXXXXXXXXXXXX" />
+						</p>
+						<p>
+							<c:out value="${errorText}" />
 						</p>
 						<p class="login button">
 							<input type="submit" value="<fmt:message key="blockcard.submit"/>" />

@@ -18,7 +18,7 @@
 		<div id="container_demo">
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="user_cardblocking" autocomplete="on" method = "POST">
+					<form action="admin_unblockuser" autocomplete="on" method = "POST">
 						<h1><fmt:message key="adminblockuser.action"/></h1>
 						<p>
 							<label for="username" class="uname" data-icon="u"> <fmt:message
@@ -26,6 +26,9 @@
 							</label> <input id="username" name="username" required="required"
 								type="text" required pattern="^[a-zA-Z](.[a-zA-Z0-9_-]*)$"
 								placeholder="myusername" />
+						</p>
+						<p>
+							<c:out value="${errorText}" />
 						</p>
 						<p class="login button">
 							<input type="submit" value="<fmt:message key="adminblockuser.submit"/>" />

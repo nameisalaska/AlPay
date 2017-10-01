@@ -12,16 +12,20 @@ public class Account {
   private double balance;
   private boolean request;
   private String pin;
+  private String name;
+  private String user;
 
   public Account() {
 
   }
-  public Account(String number, boolean status, double balance, boolean request, String pin) {
+  public Account(String number, boolean status, double balance, boolean request, String pin, String name, String user) {
     this.setNumber(number);
     this.setStatus(status);
     this.setBalance(balance);
     this.setRequest(request);
     this.setPin(pin);
+    this.setName(name);
+    this.setUser(user);
   }
   public String getNumber() {
     return number;
@@ -52,5 +56,17 @@ public class Account {
   }
   public void setPin(String pin) {
     this.pin = pin;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public String getUser() {
+    return user;
+  }
+  public void setUser(String user) {
+    this.user = user;
   }
 }

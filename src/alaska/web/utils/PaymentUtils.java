@@ -20,6 +20,7 @@ public class PaymentUtils {
       payment.setAmount(payments.getDouble("amount"));
       payment.setStatus(payments.getBoolean("status"));
       payment.setPayer(payments.getString("payer"));
+      payment.setId(payments.getString("id"));
       return payment;
   }
 }

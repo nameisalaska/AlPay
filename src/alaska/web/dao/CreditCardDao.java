@@ -9,5 +9,6 @@ import alaska.web.model.CreditCard;
 public interface CreditCardDao {
   void save(CreditCard card) throws SQLException, NamingException;
   Set<CreditCard> findByClient(String username) throws SQLException, NamingException;
+  CreditCard findByNumber(String number)throws SQLException, NamingException;
 }
 

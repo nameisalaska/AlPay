@@ -10,6 +10,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import alaska.web.dao.CreditCardDao;
+import alaska.web.model.Account;
 import alaska.web.model.CreditCard;
 import alaska.web.utils.CreditCardUtils;
 import alaska.web.utils.DbUtils;
@@ -26,6 +27,8 @@ public class CreditCardDaoImpl implements CreditCardDao{
     insertCardStatement.setString(2, card.getAccount_number());
     insertCardStatement.setString(3, card.getUsername());
     insertCardStatement.execute();
+    dbConnection.close();
+    insertCardStatement.close();
   }
 
   @Override
@@ -39,6 +42,28 @@ public class CreditCardDaoImpl implements CreditCardDao{
         CreditCard card = CreditCardUtils.initializeCard(cards);
         cardSet.add(card);
     }
+    dbConnection.close();
+    findAllCard.close();
     return cardSet;
+  }
+
+  @Override
+  public CreditCard findByNumber(String number) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
+    PreparedStatement findCard = dbConnection.prepareStatement("SELECT * FROM card WHERE number = ?");
+    findCard.setString(1, number);
+    ResultSet accountWithTheNumber = findCard.executeQuery();
+    CreditCard card = new CreditCard();
+    if (!accountWithTheNumber.isBeforeFirst() ) {
+        card = null;
+    } else {
+      accountWithTheNumber.next();
+      card.setNumber(accountWithTheNumber.getString("number"));
+      card.setAccount_number(accountWithTheNumber.getString("account_number"));
+      card.setUsername(accountWithTheNumber.getString("client"));
+    }
+    dbConnection.close();
+    findCard.close();
+    return card;
   }
 }

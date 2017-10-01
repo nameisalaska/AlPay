@@ -18,7 +18,7 @@
 		<div id="container_demo">
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="user_cardblocking" autocomplete="on" method = "POST">
+					<form action="done" autocomplete="on" method = "POST">
 						<p>
 							<h1><fmt:message key="done.text"/></h1>
 						</p>

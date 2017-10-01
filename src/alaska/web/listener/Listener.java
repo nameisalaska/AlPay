@@ -50,7 +50,6 @@ public class Listener implements ServletContextListener, HttpSessionAttributeLis
 
   public void contextInitialized(ServletContextEvent arg0) {
     log.info("Servlet context initialized.");
-    System.out.println("Listener");
     DbUtils.createDataSource();
   }
 }

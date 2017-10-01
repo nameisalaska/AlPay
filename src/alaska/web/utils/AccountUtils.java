@@ -13,13 +13,15 @@ public class AccountUtils {
   /**
    * @return constructed {@link Account}.
    */
-  public static Account initializeAccount(ResultSet payments) throws SQLException {
+  public static Account initializeAccount(ResultSet accounts) throws SQLException {
       final Account account = new Account();
-      account.setNumber(payments.getString("number"));
-      account.setPin(payments.getString("pin"));
-      account.setStatus(payments.getBoolean("status"));
-      account.setRequest(payments.getBoolean("request"));
-      account.setBalance(payments.getDouble("balance"));
+      account.setNumber(accounts.getString("number"));
+      account.setPin(accounts.getString("pin"));
+      account.setStatus(accounts.getBoolean("status"));
+      account.setRequest(accounts.getBoolean("request"));
+      account.setBalance(accounts.getDouble("balance"));
+      account.setName(accounts.getString("name"));
+      account.setUser(accounts.getString("user"));
       return account;
   }
 }

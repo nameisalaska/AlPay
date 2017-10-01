@@ -22,11 +22,11 @@ public class ReplenishDaoImpl implements ReplenishDao{
   public void save(Replenish replenish) throws SQLException, NamingException {
     Connection dbConnection =  dataSource.getConnection();
     PreparedStatement insertReplenishStatement =  dbConnection.prepareStatement("INSERT INTO replenish" +
-        " (account, amount,  date, time) VALUES (?, ?, ?, ?)");
+        " (account, amount,  date, payer) VALUES (?, ?, ?, ?)");
     insertReplenishStatement.setString(1, replenish.getAccount());
     insertReplenishStatement.setDouble(2, replenish.getAmount());
     insertReplenishStatement.setDate(3, replenish.getDate());
-    insertReplenishStatement.setTime(4, replenish.getTime());
+    insertReplenishStatement.setString(4, replenish.getPayer());
     insertReplenishStatement.execute();
   }
 
@@ -41,6 +41,8 @@ public class ReplenishDaoImpl implements ReplenishDao{
        Replenish replenish = ReplenishUtils.initializeReplenish(replenishes);
         replenishSet.add(replenish);
     }
+    dbConnection.close();
+    findAllReplenish.close();
     return replenishSet;
   }
 
@@ -55,6 +57,8 @@ public class ReplenishDaoImpl implements ReplenishDao{
        Replenish replenish = ReplenishUtils.initializeReplenish(replenishes);
         replenishSet.add(replenish);
     }
+    dbConnection.close();
+    findAllReplenish.close();
     return replenishSet;
   }
 }

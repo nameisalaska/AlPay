@@ -16,7 +16,6 @@ public class ReplenishUtils {
       replenish.setAccount(payments.getString("account"));
       replenish.setAmount(payments.getDouble("amount"));
       replenish.setDate(payments.getDate("date"));
-      replenish.setTime(payments.getTime("time"));
       return replenish;
   }
 }

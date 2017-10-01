@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="web.resources.i18n.BlockCardForm"/>
-<!DOCTYPE html">
+<fmt:setBundle basename="web.resources.i18n.done"/>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8  ">
-<title><fmt:message key="blockcard.title"/></title>
+<title></title>
 <link rel="stylesheet" type="text/css" href="style/css/style.css" />
 <link rel="stylesheet" type="text/css"
 	href="style/css/animate-custom.css" />
@@ -18,18 +18,12 @@
 		<div id="container_demo">
 			<div id="wrapper">
 				<div id="login" class="animate form">
-					<form action="user_cardblocking" autocomplete="on" method = "POST">
-						<h1><fmt:message key="blockcard.action"/></h1>
+					<form action="done" autocomplete="on" method = "POST">
 						<p>
-							<label for="cardnumber" class="uname"><fmt:message key="blockcard.label"/></label> <input
-								id="cardnumber" name="cardnumber" required="required"
-								type="text"  required pattern="[0-9]{16}"  maxlength="16"  placeholder="XXXXXXXXXXXXXXXX" />
+							<h1>${message}</h1>
 						</p>
 						<p class="login button">
-							<input type="submit" value="<fmt:message key="blockcard.submit"/>" />
-						</p>
-						<p>
-							<c:out value="${errorText}" />
+							<input type="submit" value="<fmt:message key="done.button.submit"/>" />
 						</p>
 					</form>
 				</div>

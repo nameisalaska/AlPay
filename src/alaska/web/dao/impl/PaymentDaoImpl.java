@@ -22,13 +22,14 @@ public class PaymentDaoImpl implements PaymentDao{
   public void save(Payment payment) throws SQLException, NamingException {
     Connection dbConnection =  dataSource.getConnection();
     PreparedStatement insertPaymentStatement =  dbConnection.prepareStatement("INSERT INTO payment" +
-        " (date, cardfrom, cardto, amount, status, payer) VALUES (?, ?, ?, ?, ?, ?)");
+        " (date, cardfrom, cardto, amount, status, payer, id) VALUES (?, ?, ?, ?, ?,?, ?)");
     insertPaymentStatement.setDate(1, payment.getDate());
     insertPaymentStatement.setString(2, payment.getCardFrom());
     insertPaymentStatement.setString(3, payment.getCardTo());
     insertPaymentStatement.setDouble(4, payment.getAmount());
     insertPaymentStatement.setBoolean(5, payment.isStatus());
     insertPaymentStatement.setString(6, payment.getPayer());
+    insertPaymentStatement.setString(7, payment.getId());
     insertPaymentStatement.execute();
   }
 
@@ -40,14 +41,14 @@ public class PaymentDaoImpl implements PaymentDao{
     findAllPayment.setString(2, number);
     findAllPayment.setBoolean(3, true);
     ResultSet payments = findAllPayment.executeQuery();
-
     Set<Payment> paymentSet = new HashSet<>();
     while(payments.next()) {
         Payment payment = PaymentUtils.initializePayment(payments);
         paymentSet.add(payment);
     }
+    dbConnection.close();
+    findAllPayment.close();
     return paymentSet;
-
   }
 
   @Override
@@ -55,13 +56,15 @@ public class PaymentDaoImpl implements PaymentDao{
     Connection dbConnection =  dataSource.getConnection();
     PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE payer = ? AND status = ?");
     findAllPayment.setString(1, payer);
-    findAllPayment.setBoolean(2, false);
+    findAllPayment.setBoolean(2, status);
     ResultSet payments = findAllPayment.executeQuery();
     Set<Payment> paymentSet = new HashSet<>();
     while(payments.next()) {
         Payment payment = PaymentUtils.initializePayment(payments);
         paymentSet.add(payment);
     }
+    dbConnection.close();
+    findAllPayment.close();
     return paymentSet;
   }
 
@@ -72,5 +75,39 @@ public class PaymentDaoImpl implements PaymentDao{
     updatePayment.setBoolean(1, status);
     updatePayment.setString(2, number);
     updatePayment.execute();
+    dbConnection.close();
+    updatePayment.close();
+  }
+
+  @Override
+  public Set<Payment> sortByDate1(String user) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
+    PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE payer = ? ORDER BY date");
+    findAllPayment.setString(1, user);
+    ResultSet payments = findAllPayment.executeQuery();
+    Set<Payment> paymentSet = new HashSet<>();
+    while(payments.next()) {
+        Payment payment = PaymentUtils.initializePayment(payments);
+        paymentSet.add(payment);
+    }
+    dbConnection.close();
+    findAllPayment.close();
+    return paymentSet;
+  }
+
+  @Override
+  public Set<Payment> sortByDate2(String user) throws SQLException, NamingException {
+    Connection dbConnection =  dataSource.getConnection();
+    PreparedStatement findAllPayment = dbConnection .prepareStatement("SELECT * FROM payment WHERE payer = ? ORDER BY date DESC");
+    findAllPayment.setString(1, user);
+    ResultSet payments = findAllPayment.executeQuery();
+    Set<Payment> paymentSet = new HashSet<>();
+    while(payments.next()) {
+        Payment payment = PaymentUtils.initializePayment(payments);
+        paymentSet.add(payment);
+    }
+    dbConnection.close();
+    findAllPayment.close();
+    return paymentSet;
   }
 }

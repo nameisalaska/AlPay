@@ -13,17 +13,15 @@ public class Replenish {
   private String account;
   private double amount;
   private Date date;
-  private Time time;
   private String payer;
 
   public Replenish() {
 
   }
-  public Replenish(String account, double amount, Date date, Time time,String payer) {
+  public Replenish(String account, double amount, Date date, String payer) {
     this.setAccount(account);
     this.setAmount(amount);
     this.setDate(date);
-    this.setTime(time);
     this.setPayer(payer);
   }
 
@@ -41,12 +39,6 @@ public class Replenish {
 
   public void setAmount(double amount) {
     this.amount = amount;
-  }
-  public Time getTime() {
-    return time;
-  }
-  public void setTime(Time time) {
-    this.time = time;
   }
   public Date getDate() {
     return date;

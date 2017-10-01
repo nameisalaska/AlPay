@@ -37,19 +37,30 @@ public class AuthorizationServlet extends HttpServlet {
     try {
       final User user = userDao.findByLogin(username);
       if (user != null && req.getParameter("password").equals(user.getPassword())) {
-        req.getSession().setAttribute("username", user.getLogin());
-        req.getSession().setAttribute("email", user.getEmail());
-        req.getSession().setAttribute("password", user.getPassword());
-        req.getSession().setAttribute("type", user.getType());
-        req.getSession().setAttribute("status", user.isStatus());
-        final UserType type = user.getType();
-        switch (type) {
-        case User:
-          resp.sendRedirect("user_home");
-          break;
-        case Admin:
-          resp.sendRedirect("admin_home");
-          break;
+        if (!user.isStatus()) {
+          final Locale language = (Locale) req.getSession().getAttribute("language");
+          if (language.getLanguage().equals("ru")) {
+            req.setAttribute("errorText", "Пользователь заблокирован");
+          } else {
+            req.setAttribute("errorText", "User's blocked");
+          }
+          req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+        } else {
+          req.getSession().setAttribute("login", user.getLogin());
+          req.getSession().setAttribute("email", user.getEmail());
+          req.getSession().setAttribute("password", user.getPassword());
+          req.getSession().setAttribute("type", user.getType());
+          req.getSession().setAttribute("status", user.isStatus());
+
+          final UserType type = user.getType();
+          switch (type) {
+          case User:
+            resp.sendRedirect("user_home");
+            break;
+          case Admin:
+            resp.sendRedirect("admin_home");
+            break;
+          }
         }
       } else {
         final Locale language = (Locale) req.getSession().getAttribute("language");

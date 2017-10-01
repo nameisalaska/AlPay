@@ -43,6 +43,7 @@ public class RegistrationServlet extends HttpServlet {
     User user = new User(login, email, password, UserType.User, true);
     try {
       userDao.save(user);
+      req.getRequestDispatcher("WEB-INF/view/done.jsp").forward(req, resp);
   } catch (SQLException | NamingException e) {
      log.error(e);
      e.printStackTrace();
@@ -50,12 +51,11 @@ public class RegistrationServlet extends HttpServlet {
     }else {
       final Locale language = (Locale) req.getSession().getAttribute("language");
       if (language.getLanguage().equals("ru")) {
-        req.setAttribute("errorText", "Пароли не совпадают");
+        req.setAttribute("message", "Пароли не совпадают");
       } else {
-        req.setAttribute("errorText", "Passwords mismatch");
+        req.setAttribute("message", "Passwords mismatch");
       }
-      req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+      req.getRequestDispatcher("/WEB-INF/view/signdone.jsp").forward(req, resp);
     }
-    req.getRequestDispatcher("signupconfirm.jsp").forward(req, resp);
   }
 }

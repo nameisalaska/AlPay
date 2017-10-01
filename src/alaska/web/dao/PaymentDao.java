@@ -11,4 +11,6 @@ public interface PaymentDao {
   Set<Payment> findByNumber(String number) throws SQLException, NamingException;
   void changeStatus(String number, boolean status) throws SQLException, NamingException;
   Set<Payment> findByStatus(String payer, boolean status) throws SQLException, NamingException;
+  Set<Payment> sortByDate1(String user) throws SQLException, NamingException;
+  Set<Payment> sortByDate2(String user) throws SQLException, NamingException;
 }

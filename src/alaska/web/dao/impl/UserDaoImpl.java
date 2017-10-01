@@ -33,9 +33,11 @@ public class UserDaoImpl implements UserDao {
        user.setType( UserUtils.booleanToType(usersWithTheUsername.getBoolean("type")));
        user.setStatus(usersWithTheUsername.getBoolean("status"));
      }
+     dbConnection.close();
+     usersWithTheUsername.close();
      return user;
   }
-  
+
  @Override
   public Set<User> findByStatus(boolean status) throws SQLException, NamingException{
     Connection dbConnection =  dataSource.getConnection();
@@ -47,6 +49,8 @@ public class UserDaoImpl implements UserDao {
         User user = UserUtils.initializeUser(users);
         userSet.add(user);
     }
+    dbConnection.close();
+    findAllUser.close();
     return userSet;
 }
 
@@ -61,6 +65,8 @@ public class UserDaoImpl implements UserDao {
     insertUserStatement.setBoolean(4, UserUtils.typeToBoolean(user.getType()));
     insertUserStatement.setBoolean(5, user.isStatus());
     insertUserStatement.execute();
+    dbConnection.close();
+    insertUserStatement.close();
   }
 
  @Override
@@ -70,9 +76,8 @@ public class UserDaoImpl implements UserDao {
     updateUser.setBoolean(1, status);
     updateUser.setString(2, username);
     updateUser.execute();
+    dbConnection.close();
+    updateUser.close();
   }
 
- public static void main(String[]args) throws SQLException, NamingException {
-   System.out.println( new UserDaoImpl().findByLogin("Alaska"));
- }
 }

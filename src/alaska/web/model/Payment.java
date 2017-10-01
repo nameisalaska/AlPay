@@ -9,22 +9,22 @@ import java.sql.Date;
  */
 public class Payment {
   private Date date;
+  private String id;
   private String cardFrom;
   private String cardTo;
   private double amount;
   private boolean status;
   private String payer;
 
-  public Payment() {
-
-  }
-  public Payment(Date date,String cardFrom, String cardTo, double amount, boolean status, String payer) {
+  public Payment() {}
+  public Payment(Date date,String cardFrom, String cardTo, double amount, boolean status, String payer, String id) {
     this.setDate(date);
     this.setCardFrom(cardFrom);
     this.setCardTo(cardTo);
     this.setAmount(amount);
     this.setStatus(status);
     this.setPayer(payer);
+    this.setId(id);
   }
 
   public Date getDate() {
@@ -72,5 +72,11 @@ public class Payment {
   }
   public void setPayer(String payer) {
     this.payer = payer;
+  }
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
   }
 }

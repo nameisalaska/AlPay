@@ -48,8 +48,7 @@ public class URLFilter implements Filter {
         chain.doFilter(servletRequest, servletResponse);
       } else {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-        response.sendError(HttpServletResponse.SC_FORBIDDEN);
-        return;
+        httpServletRequest.getRequestDispatcher("/WEB-INF/view/error/error.jsp").forward(httpServletRequest, response);
       }
     } else {
       chain.doFilter(servletRequest, servletResponse);

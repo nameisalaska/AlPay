@@ -31,6 +31,14 @@
     <url-pattern>/lang</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>DoneServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.DoneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoneServlet</servlet-name>
+    <url-pattern>/done</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>UserHomeServlet</servlet-name>
     <servlet-class>alaska.web.servlets.user.UserHomePageServlet</servlet-class>
   </servlet>
@@ -93,6 +101,70 @@
   <servlet-mapping>
     <servlet-name>AddServlet</servlet-name>
     <url-pattern>/user_cardAdding</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AccountAddingServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.user.AccountAddingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccountAddingServlet</servlet-name>
+    <url-pattern>/user_accountAdding</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminBlockCardServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.admin.AdminBlockCardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminBlockCardServlet</servlet-name>
+    <url-pattern>/admin_blockaccount</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AllAccountServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.user.AllAccountServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllAccountServlet</servlet-name>
+    <url-pattern>/user_allaccounts</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>AllPaymentServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.user.AllPaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllPaymentServlet</servlet-name>
+    <url-pattern>/user_allpayments</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminBlockUserServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.admin.AdminBlockUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminBlockUserServlet</servlet-name>
+    <url-pattern>/admin_blockuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminUnblockCardServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.admin.AdminUnblockCardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUnblockCardServlet</servlet-name>
+    <url-pattern>/admin_unblockaccount</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminUnblockUserServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.admin.AdminUnblockUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUnblockUserServlet</servlet-name>
+    <url-pattern>/admin_unblockuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>alaska.web.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <error-page>
     <error-code>403</error-code>
